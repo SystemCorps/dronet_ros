@@ -35,6 +35,7 @@ class zedRosDronet:
         
         self.model = keras.models.model_from_json(self.loaded_model)
         self.model.load_weights(weights_path)
+        self.isGet = False
         
         """
         self.dronet_thread = Thread(target=self.prediction, args())
@@ -54,7 +55,7 @@ class zedRosDronet:
                 
             if len(self.pred) == 4:
                 print("Yaw: ", self.pred[0][0,0], "X: ", self.pred[1][0,0],
-                     "Y: ", self.pred[1][0,0], "Z: ", self.pred[1][0,0])   
+                     "Y: ", self.pred[2][0,0], "Z: ", self.pred[3][0,0])   
 
    
     def img_callback(self, data):
